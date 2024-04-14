@@ -11,7 +11,7 @@ function NewTask({onTaskSubmit}){
     
     const [textTask, setTextTask] = useState("");
     const [textDesc, setTextDesc] = useState("");
-    const [dueDate, setDueDate] = useState(dayjs().startOf('day'));
+    const [dueDate, setDueDate] = useState(dayjs().startOf('day').format('DD-MMM-YYYY'));
 
     const onSubmit = () => {
         let taskDetail = {

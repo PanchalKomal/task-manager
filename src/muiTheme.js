@@ -13,7 +13,8 @@ const theme = createTheme({
     typography: {
         fontSize:11,
         borderColor: '#aaaaaa',
-        color: '#173A5E',              
+        color: '#173A5E', 
+        fontFamily: 'sans-serif'             
     },
     components: {
       MuiButton: {
@@ -62,7 +63,32 @@ const theme = createTheme({
                 fontSize: '0.8rem',
             }
         }
-      },     
+      },
+      MuiTable:{
+        styleOverrides: {        
+          root: {   
+            maxWidth: 700
+          },        
+        },
+      }, 
+      MuiTableCell:{
+        styleOverrides: {        
+          root: {   
+            borderColor: '#aaaaaa',
+            color: '#173A5E',    
+            fontSize: '0.8rem',
+            border:'none',
+            padding:'0'        
+          },        
+        },
+        MuiTableHead:{
+          styleOverrides: {        
+            root: {   
+              borderBottom:'1px solid #aaaaaa'                  
+            },        
+          },          
+        }
+      }    
     }  
   });
 
