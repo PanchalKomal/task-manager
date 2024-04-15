@@ -33,6 +33,7 @@ function NewTask({onTaskSubmit}){
                 defaultValue=""          
                 size="small"
                 onChange={(event) => {setTextTask(event.target.value)}}
+                InputProps = {{'data-testid': "Task"}}
             />
         </div>
         <div className='mt-3'>
@@ -43,7 +44,8 @@ function NewTask({onTaskSubmit}){
                 rows={4} 
                 size="small"    
                 onChange={(event) => {setTextDesc(event.target.value)}}  
-                InputProps={{style: {padding:'0px'}}}
+                InputProps={{style: {padding:'0px'}, 'data-testid': "Description"}}
+                
             />
         </div>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -51,12 +53,12 @@ function NewTask({onTaskSubmit}){
                 <DatePicker 
                     defaultValue={dayjs().startOf('day')} 
                     sx={{maxWidth: '200px', fontSize: '0.8rem'}}
-                    onChange={(value) => {setDueDate(value.format('DD-MMM-YYYY'))}}                    
+                    onChange={(value) => {setDueDate(value.format('DD-MMM-YYYY'))}}                                   
                 />        
             </div>
         </LocalizationProvider>
         <div className='mt-5 flex justify-end'>
-            <Button variant="outlined" onClick={onSubmit}  disabled={textTask != "" ? false : true}>
+            <Button variant="outlined" onClick={onSubmit} disabled={textTask != "" ? false : true}>
                 Submit
             </Button>
         </div>

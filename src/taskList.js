@@ -13,6 +13,17 @@ import CheckIcon from '@mui/icons-material/CheckCircle';
 import CheckIconOutlined from '@mui/icons-material/CheckCircleOutlined';
 import { lightGreen } from '@mui/material/colors';
 
+function TaskDetails({row}) { 
+
+  return <Box sx={{ fontSize:'0.8rem', backgroundColor:'#fafafa'}}>
+    <div className='border rounded-md px-5 py-5 space-y-3'>
+    <h1 className='font-bold'>{row.Task}</h1>
+    <div>Due On: {row.DueOn} </div>
+    <div>{row.Description}</div>
+    </div>
+  </Box>;
+}
+
 function Task(props) {
     const { row, isSelected, onRowSelect, onStatusChange } = props;
     const [open, setOpen] = React.useState(false);
@@ -48,13 +59,7 @@ function Task(props) {
         <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ fontSize:'0.8rem', backgroundColor:'#fafafa'}}>
-                <div className='border rounded-md px-5 py-5 space-y-3'>
-                <h1 className='font-bold'>{row.Task}</h1>
-                <div>Due On: {row.DueOn} </div>
-                <div>{row.Description}</div>
-                </div>
-            </Box>
+            <TaskDetails row={row} />            
           </Collapse>
         </TableCell>
       </TableRow>     
